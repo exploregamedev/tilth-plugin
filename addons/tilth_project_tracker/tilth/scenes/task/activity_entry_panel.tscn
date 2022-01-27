@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://addons/tilth_project_tracker/tilth/scenes/task/activity_entry_panel.gd" type="Script" id=1]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.960784, 0.960784, 1, 1 )
+
+[node name="TaskActivityPanel" type="PanelContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Padding" type="MarginContainer" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+
+[node name="ActivityContainer" type="VBoxContainer" parent="Padding"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 1019.0
+margin_bottom = 595.0
+
+[node name="When" type="Label" parent="Padding/ActivityContainer"]
+margin_right = 1014.0
+margin_bottom = 14.0
+text = "when lablel"
+
+[node name="Copy" type="Label" parent="Padding/ActivityContainer"]
+margin_top = 18.0
+margin_right = 1014.0
+margin_bottom = 32.0
+text = "activity copy"

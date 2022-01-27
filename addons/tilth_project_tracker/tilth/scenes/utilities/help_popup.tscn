@@ -1,0 +1,89 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://addons/tilth_project_tracker/tilth/themes/light/theme_light.tres" type="Theme" id=1]
+[ext_resource path="res://addons/tilth_project_tracker/tilth/scenes/utilities/help_popup.gd" type="Script" id=2]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.733333, 0.733333, 0.733333, 1 )
+
+[node name="HelpPopup" type="PopupPanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Padding" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text" type="RichTextLabel" parent="Padding"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 1356.0
+margin_bottom = 758.0
+bbcode_enabled = true
+bbcode_text = "[center]Tilth studio[/center]
+
+Hello, I'm Sam Keen and Tilth is a project of mine to build a task management application usign Godot.  This is in its very early stages at this time but I plan to continue to refine an add new features.  My  [color=navy][url=https://exploregamedev.itch.io/tilth]Itch.io page[/url][/color] has a more details.
+
+Feel free to contanct me at Twitter or on [color=navy][url=https://twitter.com/exploregamedev]Twitter[/url][/color]
+
+Quick start
+
+> Create a new project
+
+1. From the Projects menu click New project.
+2. Give your project a name and description then click Save project
+3. Click the Open button next to your new project
+
+> Add stages
+
+1. Once you have opened the project, add the stages you would like to utilize.  A common setup is; [Backlog] [In progress] [Done]
+
+You can reorder Stages by dragging and dropping them.
+
+> Adding Tasks
+
+Finally add Tasks to your stages
+1. It is common to add all the tasks to the [Backlog] stage, then move them to the right as you begin work on them and ultimately finish them.
+
+You can moves Tasks between stages by dragging and dropping them"
+text = "Tilth studio
+
+Hello, I'm Sam Keen and Tilth is a project of mine to build a task management application usign Godot.  This is in its very early stages at this time but I plan to continue to refine an add new features.  My  Itch.io page has a more details.
+
+Feel free to contanct me at Twitter or on Twitter
+
+Quick start
+
+> Create a new project
+
+1. From the Projects menu click New project.
+2. Give your project a name and description then click Save project
+3. Click the Open button next to your new project
+
+> Add stages
+
+1. Once you have opened the project, add the stages you would like to utilize.  A common setup is; [Backlog] [In progress] [Done]
+
+You can reorder Stages by dragging and dropping them.
+
+> Adding Tasks
+
+Finally add Tasks to your stages
+1. It is common to add all the tasks to the [Backlog] stage, then move them to the right as you begin work on them and ultimately finish them.
+
+You can moves Tasks between stages by dragging and dropping them"

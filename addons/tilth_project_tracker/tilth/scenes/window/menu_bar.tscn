@@ -1,0 +1,102 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://addons/tilth_project_tracker/tilth/themes/light/theme_light.tres" type="Theme" id=1]
+[ext_resource path="res://addons/tilth_project_tracker/tilth/fonts/source_sans_pro/bold-18.tres" type="DynamicFont" id=2]
+[ext_resource path="res://addons/tilth_project_tracker/tilth/scenes/window/menu_bar.gd" type="Script" id=3]
+[ext_resource path="res://addons/tilth_project_tracker/tilth/scenes/project/project_crud/project_crud_popup.tscn" type="PackedScene" id=4]
+[ext_resource path="res://addons/tilth_project_tracker/tilth/scenes/window/project_file_dialog.gd" type="Script" id=5]
+[ext_resource path="res://addons/tilth_project_tracker/tilth/scenes/utilities/help_popup.tscn" type="PackedScene" id=6]
+[ext_resource path="res://addons/tilth_project_tracker/tilth/scenes/utilities/about_popup.tscn" type="PackedScene" id=7]
+[ext_resource path="res://addons/tilth_project_tracker/tilth/scenes/utilities/preferences_dialog.tscn" type="PackedScene" id=8]
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.501961, 0.556863, 0.584314, 1 )
+
+[node name="MenuBar" type="PanelContainer"]
+margin_right = 1366.0
+margin_bottom = 25.0
+theme = ExtResource( 1 )
+custom_styles/panel = SubResource( 3 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Padding" type="MarginContainer" parent="."]
+margin_right = 1366.0
+margin_bottom = 49.0
+custom_constants/margin_top = 10
+custom_constants/margin_left = 15
+custom_constants/margin_bottom = 10
+
+[node name="HLayout" type="HBoxContainer" parent="Padding"]
+margin_left = 15.0
+margin_top = 10.0
+margin_right = 1366.0
+margin_bottom = 39.0
+custom_constants/separation = 20
+
+[node name="Tilth" type="MenuButton" parent="Padding/HLayout"]
+margin_right = 49.0
+margin_bottom = 29.0
+focus_mode = 2
+size_flags_horizontal = 0
+custom_fonts/font = ExtResource( 2 )
+text = "Tilth"
+
+[node name="Project" type="MenuButton" parent="Padding/HLayout"]
+margin_left = 69.0
+margin_right = 138.0
+margin_bottom = 29.0
+focus_mode = 2
+size_flags_horizontal = 0
+custom_fonts/font = ExtResource( 2 )
+text = "Project"
+
+[node name="Help" type="MenuButton" parent="Padding/HLayout"]
+margin_left = 158.0
+margin_right = 205.0
+margin_bottom = 29.0
+focus_mode = 2
+size_flags_horizontal = 0
+custom_fonts/font = ExtResource( 2 )
+text = "Help"
+
+[node name="ProjectCrudPopup" parent="." instance=ExtResource( 4 )]
+visible = false
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 1366.0
+margin_bottom = 289.0
+
+[node name="AboutPopup" parent="." instance=ExtResource( 7 )]
+visible = false
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 1366.0
+margin_bottom = 289.0
+
+[node name="ProjectFileDialog" type="FileDialog" parent="."]
+margin_right = 416.0
+margin_bottom = 189.0
+rect_min_size = Vector2( 400, 140 )
+size_flags_horizontal = 0
+window_title = "Open a File"
+mode = 0
+access = 2
+current_dir = "/Volumes/development/Godot/Tilth"
+current_path = "/Volumes/development/Godot/Tilth/"
+script = ExtResource( 5 )
+
+[node name="HelpPopup" parent="." instance=ExtResource( 6 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 1366.0
+margin_bottom = 289.0
+
+[node name="PreferencesDialog" parent="." instance=ExtResource( 8 )]
+visible = false
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 1366.0
+margin_bottom = 44.0

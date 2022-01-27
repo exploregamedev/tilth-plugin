@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://addons/tilth_project_tracker/tilth/scenes/project/project_board.gd" type="Script" id=1]
+[ext_resource path="res://addons/tilth_project_tracker/tilth/themes/light/theme_light.tres" type="Theme" id=2]
+[ext_resource path="res://addons/tilth_project_tracker/tilth/scenes/window/menu_bar.tscn" type="PackedScene" id=3]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.960784, 0.960784, 0.964706, 1 )
+
+[node name="ProjectBoard" type="PanelContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 2 )
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VLayout" type="VBoxContainer" parent="."]
+margin_right = 1366.0
+margin_bottom = 768.0
+
+[node name="MenuBar" parent="VLayout" instance=ExtResource( 3 )]
+margin_bottom = 49.0
+
+[node name="Scroll" type="ScrollContainer" parent="VLayout"]
+margin_top = 53.0
+margin_right = 1366.0
+margin_bottom = 768.0
+size_flags_vertical = 3
+
+[node name="Padding" type="MarginContainer" parent="VLayout/Scroll"]
+margin_right = 1366.0
+margin_bottom = 715.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StageColumns" type="HBoxContainer" parent="VLayout/Scroll/Padding"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 1346.0
+margin_bottom = 695.0
