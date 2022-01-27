@@ -2,10 +2,11 @@ tool
 extends EditorPlugin
 
 #const MainPanel = preload("res://addons/tilth_project_tracker/main_scene.tscn")
-const ProjectList = preload("res://addons/tilth_project_tracker/tilth/scenes/project/project_board.tscn")
+const ProjectBoard = preload("res://addons/tilth_project_tracker/tilth/scenes/project/project_board.tscn")
+#const ProjectBoard = preload("res://addons/tilth_project_tracker/tilth/scenes/project/projects_list.tscn")
 
 #var main_panel_instance: Control
-var project_list_instance: Control
+var project_board_instance: Control
 
 
 const Singletons = {
@@ -17,29 +18,29 @@ const Singletons = {
 
 func _enter_tree() -> void:
 	auto_loads("add")
-	project_list_instance = ProjectList.instance()
+	project_board_instance = ProjectBoard.instance()
 	var project_repo = ResourceRepository.new()
 	project_repo.init("Project", AppSettings.resource_store_path)
 	var projects = project_repo.load_all_resources(true) # skip cache
-	project_list_instance.set_project(projects[0])
+	project_board_instance.set_project(projects[0])
 	# Add the main panel to the editor's main viewport.
-	get_editor_interface().get_editor_viewport().add_child(project_list_instance)
+	get_editor_interface().get_editor_viewport().add_child(project_board_instance)
 	# Hide the main panel. Very much required.
 	make_visible(false)
 
 
 func _exit_tree() -> void:
 	auto_loads("remove")
-	if project_list_instance:
-		project_list_instance.queue_free()
+	if project_board_instance:
+		project_board_instance.queue_free()
 
 func has_main_screen():
 	return true
 
 
 func make_visible(visible):
-	if project_list_instance:
-		project_list_instance.visible = visible
+	if project_board_instance:
+		project_board_instance.visible = visible
 
 
 func get_plugin_name():

@@ -43,6 +43,8 @@ focus_mode = 2
 size_flags_horizontal = 0
 custom_fonts/font = ExtResource( 2 )
 text = "Tilth"
+items = [ "About", null, 0, false, false, 0, 0, null, "", false, "Preferences", null, 0, false, false, 1, 0, null, "", false ]
+switch_on_hover = true
 
 [node name="Project" type="MenuButton" parent="Padding/HLayout"]
 margin_left = 69.0
@@ -52,6 +54,8 @@ focus_mode = 2
 size_flags_horizontal = 0
 custom_fonts/font = ExtResource( 2 )
 text = "Project"
+items = [ "Load project from backup", null, 0, false, false, 0, 0, null, "", false ]
+switch_on_hover = true
 
 [node name="Help" type="MenuButton" parent="Padding/HLayout"]
 margin_left = 158.0
@@ -61,6 +65,8 @@ focus_mode = 2
 size_flags_horizontal = 0
 custom_fonts/font = ExtResource( 2 )
 text = "Help"
+items = [ "Docs", null, 0, false, false, 0, 0, null, "", false ]
+switch_on_hover = true
 
 [node name="ProjectCrudPopup" parent="." instance=ExtResource( 4 )]
 visible = false
@@ -68,9 +74,9 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 1366.0
 margin_bottom = 289.0
+window_title = "Create project"
 
 [node name="AboutPopup" parent="." instance=ExtResource( 7 )]
-visible = false
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 1366.0
@@ -82,17 +88,19 @@ margin_bottom = 189.0
 rect_min_size = Vector2( 400, 140 )
 size_flags_horizontal = 0
 window_title = "Open a File"
+resizable = true
 mode = 0
 access = 2
-current_dir = "/Volumes/development/Godot/Tilth"
-current_path = "/Volumes/development/Godot/Tilth/"
+filters = PoolStringArray( "*.tres ; Resource files" )
+current_dir = "/Users/sam/Library/Application Support/Godot/app_userdata/Tilth plugin"
+current_path = "/Users/sam/Library/Application Support/Godot/app_userdata/Tilth plugin/"
 script = ExtResource( 5 )
 
 [node name="HelpPopup" parent="." instance=ExtResource( 6 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 1366.0
-margin_bottom = 289.0
+margin_bottom = 322.0
 
 [node name="PreferencesDialog" parent="." instance=ExtResource( 8 )]
 visible = false

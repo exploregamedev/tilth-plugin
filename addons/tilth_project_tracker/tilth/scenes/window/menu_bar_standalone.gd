@@ -12,28 +12,22 @@ onready var _file_dialog: FileDialog = $ProjectFileDialog
 export(int) var create_project_window_width = 600
 export(int) var create_project_window_height = 600
 
-
 # Foreach key add a "_on_%s_menu_item_pressed" % key.to_lower() function
 var _menus: Dictionary = {
-	"Tilth": ["About", "Preferences"],
-	"Project": ["Load project from backup"],
+	"Tilth": ["About", "Preferences", "Quit"],
+	"Project": ["Projects list", "New project", "Load project from backup"],
 	"Help": ["Docs"]
 }
 
 func _ready() -> void:
 	_file_dialog.connect("file_selected", self, "_on_file_selected")
-	_init_menu_items()
-
-func _init_menu_items() -> void:
 	for menu_name in _menus:
-		var menu_node: MenuButton = get_node("Padding/HLayout/%s" % menu_name)
-		var menu_popup: PopupMenu = menu_node.get_popup()
+		var menu_node = get_node("Padding/HLayout/%s" % menu_name)
 		menu_node.set_switch_on_hover(true)
-		menu_popup.connect(
+		menu_node.get_popup().connect(
 			"id_pressed", self, "_on_%s_menu_item_pressed" % menu_name.to_lower())
-		menu_popup.clear()
 		for menu_item in _menus[menu_name]:
-			menu_popup.add_item(menu_item)
+			menu_node.get_popup().add_item(menu_item)
 
 func _on_tilth_menu_item_pressed(menu_item: int):
 	match menu_item:
@@ -43,10 +37,17 @@ func _on_tilth_menu_item_pressed(menu_item: int):
 		1: # Preferences
 			var window_size = Vector2(800, 600)
 			_preferences_popup.popup_centered(window_size)
+		2: # Quit
+			get_tree().quit()
 
 func _on_project_menu_item_pressed(menu_item: int):
 	match menu_item:
-		0: # load backup
+		0: # Projects list
+			SceneChanger.change_scene(_project_list_scene_path, 0)
+		1: # New project
+			var window_size = Vector2(create_project_window_width, create_project_window_height)
+			_project_crud_popup.popup_centered(window_size)
+		2: # load backup
 			var window_size = Vector2(600, 400)
 			_file_dialog.popup_centered(window_size)
 

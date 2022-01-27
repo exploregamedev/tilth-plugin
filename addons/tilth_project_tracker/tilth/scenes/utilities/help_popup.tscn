@@ -1,43 +1,121 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://addons/tilth_project_tracker/tilth/themes/light/theme_light.tres" type="Theme" id=1]
+[ext_resource path="res://addons/tilth_project_tracker/tilth/themes/light/panel-material-dark.tres" type="StyleBox" id=1]
 [ext_resource path="res://addons/tilth_project_tracker/tilth/scenes/utilities/help_popup.gd" type="Script" id=2]
+[ext_resource path="res://addons/tilth_project_tracker/tilth/themes/light/theme_light.tres" type="Theme" id=3]
+[ext_resource path="res://addons/tilth_project_tracker/tilth/fonts/source_sans_pro/bolder-panel-title.tres" type="DynamicFont" id=4]
+[ext_resource path="res://addons/tilth_project_tracker/tilth/themes/light/panel-material-primary.tres" type="StyleBox" id=6]
+[ext_resource path="res://addons/tilth_project_tracker/tilth/themes/light/panel-material-gray-medium.tres" type="StyleBox" id=7]
+[ext_resource path="res://addons/tilth_project_tracker/tilth/fonts/source_sans_pro/SourceSansPro-Bold.ttf" type="DynamicFontData" id=9]
 
-[sub_resource type="StyleBoxFlat" id=1]
-bg_color = Color( 0.733333, 0.733333, 0.733333, 1 )
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.882353, 0.937255, 0.968627, 1 )
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color( 0.156863, 0.133333, 0.133333, 1 )
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
 
-[node name="HelpPopup" type="PopupPanel"]
+[sub_resource type="DynamicFont" id=1]
+size = 24
+font_data = ExtResource( 9 )
+
+[node name="AboutPopup" type="PopupPanel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-theme = ExtResource( 1 )
-custom_styles/panel = SubResource( 1 )
+margin_bottom = 200.0
+theme = ExtResource( 3 )
+custom_styles/panel = SubResource( 2 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Padding" type="MarginContainer" parent="."]
+[node name="VLayout" type="VBoxContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_constants/margin_right = 10
-custom_constants/margin_top = 10
-custom_constants/margin_left = 10
-custom_constants/margin_bottom = 10
+margin_left = 3.0
+margin_top = 3.0
+margin_right = -3.0
+margin_bottom = -3.0
+custom_constants/separation = 0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Text" type="RichTextLabel" parent="Padding"]
-margin_left = 10.0
-margin_top = 10.0
-margin_right = 1356.0
-margin_bottom = 758.0
-bbcode_enabled = true
-bbcode_text = "[center]Tilth studio[/center]
+[node name="TopBar" type="PanelContainer" parent="VLayout"]
+margin_right = 1018.0
+margin_bottom = 101.0
+custom_styles/panel = ExtResource( 1 )
 
-Hello, I'm Sam Keen and Tilth is a project of mine to build a task management application usign Godot.  This is in its very early stages at this time but I plan to continue to refine an add new features.  My  [color=navy][url=https://exploregamedev.itch.io/tilth]Itch.io page[/url][/color] has a more details.
+[node name="Padding" type="MarginContainer" parent="VLayout/TopBar"]
+margin_right = 1018.0
+margin_bottom = 101.0
+
+[node name="Title" type="Label" parent="VLayout/TopBar/Padding"]
+margin_right = 1018.0
+margin_bottom = 101.0
+custom_fonts/font = ExtResource( 4 )
+text = "Tilth studio"
+align = 1
+
+[node name="HeaderPanel" type="PanelContainer" parent="VLayout"]
+margin_top = 101.0
+margin_right = 1018.0
+margin_bottom = 172.0
+custom_styles/panel = ExtResource( 6 )
+
+[node name="Padding" type="MarginContainer" parent="VLayout/HeaderPanel"]
+margin_right = 1018.0
+margin_bottom = 71.0
+custom_constants/margin_top = 20
+custom_constants/margin_bottom = 20
+
+[node name="HLayout" type="HBoxContainer" parent="VLayout/HeaderPanel/Padding"]
+margin_top = 20.0
+margin_right = 1018.0
+margin_bottom = 51.0
+
+[node name="VersionLabel" type="Label" parent="VLayout/HeaderPanel/Padding/HLayout"]
+margin_right = 1018.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 1 )
+text = "not set"
+align = 1
+
+[node name="BodyPanel" type="PanelContainer" parent="VLayout"]
+margin_top = 172.0
+margin_right = 1018.0
+margin_bottom = 794.0
+size_flags_vertical = 3
+custom_styles/panel = ExtResource( 7 )
+
+[node name="Padding" type="MarginContainer" parent="VLayout/BodyPanel"]
+margin_right = 1018.0
+margin_bottom = 622.0
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+
+[node name="VLayout" type="VBoxContainer" parent="VLayout/BodyPanel/Padding"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 998.0
+margin_bottom = 602.0
+custom_constants/separation = 40
+
+[node name="Description" type="RichTextLabel" parent="VLayout/BodyPanel/Padding/VLayout"]
+margin_right = 978.0
+margin_bottom = 582.0
+size_flags_vertical = 3
+bbcode_enabled = true
+bbcode_text = "Hello, I'm Sam Keen and Tilth is a project of mine to build a task management application usign Godot.  This is in its very early stages at this time but I plan to continue to refine an add new features.  My  [color=navy][url=https://exploregamedev.itch.io/tilth]Itch.io page[/url][/color] has a more details.
 
 Feel free to contanct me at Twitter or on [color=navy][url=https://twitter.com/exploregamedev]Twitter[/url][/color]
 
@@ -61,9 +139,7 @@ Finally add Tasks to your stages
 1. It is common to add all the tasks to the [Backlog] stage, then move them to the right as you begin work on them and ultimately finish them.
 
 You can moves Tasks between stages by dragging and dropping them"
-text = "Tilth studio
-
-Hello, I'm Sam Keen and Tilth is a project of mine to build a task management application usign Godot.  This is in its very early stages at this time but I plan to continue to refine an add new features.  My  Itch.io page has a more details.
+text = "Hello, I'm Sam Keen and Tilth is a project of mine to build a task management application usign Godot.  This is in its very early stages at this time but I plan to continue to refine an add new features.  My  Itch.io page has a more details.
 
 Feel free to contanct me at Twitter or on Twitter
 
