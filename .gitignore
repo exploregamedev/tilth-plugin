@@ -13,11 +13,6 @@ data_*/
 /.vscode/
 /.idea/
 
-# save files
-/debug/save/*
-
 # OSX
 .DS_Store
 
-# app Save files
-save-*
