@@ -8,7 +8,10 @@ var _stage_separator: PackedScene = preload("res://addons/tilth_project_tracker/
 onready var _menu_bar: Container = $VLayout/MenuBar
 onready var stage_columns: HBoxContainer = $VLayout/Scroll/Padding/StageColumns
 
+var app_version: String setget set_app_version
+
 func _ready() -> void:
+    init_project()
 	_menu_bar.project = _project
 	Events.connect("ui_added_stage", self, "_on_ui_added_stage")
 	Events.connect("ui_deleted_stage", self, "_on_ui_deleted_stage")
@@ -23,7 +26,21 @@ func _ready() -> void:
 func set_project(project: Project) -> void:
 	_project = project
 
+func init_project() -> void:
+    var project_repo = ResourceRepository.new()
+	project_repo.init("Project")
+	var projects = project_repo.load_all_resources(true) # skip cache
+	if not projects:
+		print("Creating initial Project")
+		_project = Project.new()
+		_project.name = "My Project"
+		_project.description = "The project description"
+	else:
+		_project = projects[0]
 
+func set_app_version(version: String) -> void:
+	AppSettings.app_version = version
+	app_version = version
 
 func _load_stages(project: Project) -> void:
 	"""

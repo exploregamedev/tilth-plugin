@@ -76,7 +76,7 @@ func _on_file_selected(file_path: String) -> void:
 	"""
 	var path_parts = file_path.split("/")
 	var project_repo = ResourceRepository.new()
-	project_repo.init("Project", AppSettings.resource_store_path)
+	project_repo.init("Project")
 	var project = project_repo.load_from_file(file_path, true) # ignore cache
 	project.name = "%s-restored from %s backup" % [project.name, path_parts[-2]]
 	project.id = Uuid.v4()

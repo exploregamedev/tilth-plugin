@@ -17,9 +17,9 @@ const SAVE_NAME_PREFIX := "save-"
 const SAVE_NAME_TEMPLATE := "%s{identifier}.tres" % SAVE_NAME_PREFIX
 
 # initialize this class (Godot doesn't have constructors)
-func init(model_name: String, persist_path: String) -> void:
+func init(model_name: String) -> void:
 	_model_name = model_name.to_lower()
-	persist_dir_path =  persist_path.plus_file("_datastore")
+	persist_dir_path =  AppSettings.resource_store_path.plus_file("_datastore")
 	persist_dir = Directory.new()
 	print("Resource [%s] persist dir: %s" % [_model_name, persist_dir_path])
 	if not persist_dir.dir_exists(persist_dir_path):

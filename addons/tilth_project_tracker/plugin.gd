@@ -16,21 +16,8 @@ const Singletons = {
 
 func _enter_tree() -> void:
 	auto_loads("add")
-	AppSettings.app_version = _get_plugin_version()
 	project_board_instance = ProjectBoard.instance()
-	var project_repo = ResourceRepository.new()
-	project_repo.init("Project", AppSettings.resource_store_path)
-	var current_project: Project
-	var projects = project_repo.load_all_resources(true) # skip cache
-	if not projects:
-		print("Creating initial Project")
-		current_project = Project.new()
-		current_project.name = "My Project"
-		current_project.description = "The project description"
-		project_board_instance.set_project(current_project)
-	else:
-		current_project = projects[0]
-		project_board_instance.set_project(current_project)
+	project_board_instance.app_version = _get_plugin_version()
 	# Add the main panel to the editor's main viewport.
 	get_editor_interface().get_editor_viewport().add_child(project_board_instance)
 	# Hide the main panel. Very much required.

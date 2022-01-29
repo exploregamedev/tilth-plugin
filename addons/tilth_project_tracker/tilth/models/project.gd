@@ -26,7 +26,7 @@ var _repository: ResourceRepository
 func _init() -> void:
 	if not _repository:
 		_repository = ResourceRepository.new()
-		_repository.init("Project", AppSettings.resource_store_path)
+		_repository.init("Project")
 
 """
 Note: id and create_date are set on Project.save()
