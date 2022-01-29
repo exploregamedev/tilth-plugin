@@ -8,8 +8,8 @@ onready var _preferences_popup: WindowDialog = $PreferencesDialog
 onready var _about_popup: Popup = $AboutPopup
 onready var _file_dialog: FileDialog = $ProjectFileDialog
 
-export(int) var create_project_window_width = 600
-export(int) var create_project_window_height = 600
+var _popup_open_min_size = Vector2(600,400)
+
 export(String) var help_menu_url = "https://github.com/exploregamedev/tilth-plugin"
 
 var project: Project setget set_project
@@ -47,17 +47,14 @@ func _init_menu_items() -> void:
 func _on_tilth_menu_item_pressed(menu_item: int):
 	match menu_item:
 		0: # About
-			var window_size = Vector2(800, 600)
-			_about_popup.popup_centered(window_size)
+			_about_popup.popup_centered(_popup_open_min_size)
 		1: # Preferences
-			var window_size = Vector2(800, 600)
-			_preferences_popup.popup_centered(window_size)
+			_preferences_popup.popup_centered(_popup_open_min_size)
 
 func _on_project_menu_item_pressed(menu_item: int):
 	match menu_item:
 		0: # Edit project
-			var window_size = Vector2(create_project_window_width, create_project_window_height)
-			_project_crud_popup.popup_centered(window_size)
+			_project_crud_popup.popup_centered_minsize(_popup_open_min_size)
 			_project_crud_popup.set_project(project)
 # @todo Backup disabled see: #15 : https://github.com/exploregamedev/tilth-plugin/issues/15
 #		1: # load backup

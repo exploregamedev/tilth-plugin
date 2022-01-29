@@ -4,7 +4,6 @@
 [ext_resource path="res://addons/tilth_project_tracker/tilth/fonts/source_sans_pro/bolder-panel-title.tres" type="DynamicFont" id=4]
 
 [node name="AboutPopup" type="PopupPanel"]
-visible = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 3 )
@@ -15,27 +14,27 @@ __meta__ = {
 [node name="VLayout" type="VBoxContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 3.0
-margin_top = 3.0
-margin_right = -3.0
-margin_bottom = -3.0
+margin_left = 4.0
+margin_top = 4.0
+margin_right = -4.0
+margin_bottom = -4.0
 custom_constants/separation = 0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="TopBar" type="PanelContainer" parent="VLayout"]
-margin_right = 1018.0
+margin_right = 1016.0
 margin_bottom = 115.0
 
 [node name="Padding" type="MarginContainer" parent="VLayout/TopBar"]
 margin_left = 7.0
 margin_top = 7.0
-margin_right = 1011.0
+margin_right = 1009.0
 margin_bottom = 108.0
 
 [node name="Title" type="Label" parent="VLayout/TopBar/Padding"]
-margin_right = 1004.0
+margin_right = 1002.0
 margin_bottom = 101.0
 custom_fonts/font = ExtResource( 4 )
 text = "Tilth studio plugin"
@@ -43,24 +42,24 @@ align = 1
 
 [node name="HeaderPanel" type="PanelContainer" parent="VLayout"]
 margin_top = 115.0
-margin_right = 1018.0
+margin_right = 1016.0
 margin_bottom = 183.0
 
 [node name="Padding" type="MarginContainer" parent="VLayout/HeaderPanel"]
 margin_left = 7.0
 margin_top = 7.0
-margin_right = 1011.0
+margin_right = 1009.0
 margin_bottom = 61.0
 custom_constants/margin_top = 20
 custom_constants/margin_bottom = 20
 
 [node name="HLayout" type="HBoxContainer" parent="VLayout/HeaderPanel/Padding"]
 margin_top = 20.0
-margin_right = 1004.0
+margin_right = 1002.0
 margin_bottom = 34.0
 
 [node name="VersionLabel" type="Label" parent="VLayout/HeaderPanel/Padding/HLayout"]
-margin_right = 1004.0
+margin_right = 1002.0
 margin_bottom = 14.0
 size_flags_horizontal = 3
 text = "v0.1.0"
@@ -68,52 +67,40 @@ align = 1
 
 [node name="BodyPanel" type="PanelContainer" parent="VLayout"]
 margin_top = 183.0
-margin_right = 1018.0
-margin_bottom = 594.0
+margin_right = 1016.0
+margin_bottom = 592.0
 size_flags_vertical = 3
 
 [node name="Padding" type="MarginContainer" parent="VLayout/BodyPanel"]
 margin_left = 7.0
 margin_top = 7.0
-margin_right = 1011.0
-margin_bottom = 404.0
+margin_right = 1009.0
+margin_bottom = 402.0
 custom_constants/margin_right = 20
 custom_constants/margin_top = 20
 custom_constants/margin_left = 20
 custom_constants/margin_bottom = 20
 
-[node name="VLayout" type="VBoxContainer" parent="VLayout/BodyPanel/Padding"]
+[node name="Details" type="RichTextLabel" parent="VLayout/BodyPanel/Padding"]
 margin_left = 20.0
 margin_top = 20.0
-margin_right = 984.0
-margin_bottom = 377.0
-custom_constants/separation = 40
+margin_right = 982.0
+margin_bottom = 375.0
+bbcode_enabled = true
+bbcode_text = "Tilth studio plugin is an application for planning and
+ tracking tasks to build video games. 
 
-[node name="Desc" type="Label" parent="VLayout/BodyPanel/Padding/VLayout"]
-margin_right = 964.0
-margin_bottom = 31.0
+[color=silver][url=https://github.com/exploregamedev/tilth-plugin]More details here[/url][/color]
+
+Developer: [url=https://exploregamedev.substack.com/]Sam Keen[/url]
+- [color=silver][url=https://twitter.com/exploregamedev/]Twitter[/url][/color]
+- [color=silver][url=https://www.youtube.com/channel/UCZIhKFkqPOMrdlpYBCxB8Fw]Youtube[/url][/color]"
 text = "Tilth studio plugin is an application for planning and
- tracking tasks to build video games. "
+ tracking tasks to build video games. 
 
-[node name="MoreDetailsLink" type="RichTextLabel" parent="VLayout/BodyPanel/Padding/VLayout"]
-margin_top = 71.0
-margin_right = 964.0
-margin_bottom = 86.0
-bbcode_enabled = true
-bbcode_text = "[color=navy][url=https://github.com/exploregamedev/tilth-plugin]More details here[/url][/color]"
-text = "More details here"
-fit_content_height = true
+More details here
 
-[node name="Developer" type="RichTextLabel" parent="VLayout/BodyPanel/Padding/VLayout"]
-margin_top = 126.0
-margin_right = 964.0
-margin_bottom = 357.0
-size_flags_vertical = 3
-custom_colors/default_color = Color( 0, 0, 0, 1 )
-bbcode_enabled = true
-bbcode_text = "Developer: [url=https://exploregamedev.substack.com/]Sam Keen[/url]
-- [url=https://twitter.com/exploregamedev/]Twitter[/url]
-- [url=https://www.youtube.com/channel/UCZIhKFkqPOMrdlpYBCxB8Fw]Youtube[/url]"
-text = "Developer: Sam Keen
+Developer: Sam Keen
 - Twitter
 - Youtube"
+fit_content_height = true

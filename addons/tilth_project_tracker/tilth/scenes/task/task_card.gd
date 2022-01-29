@@ -3,8 +3,8 @@ tool
 extends PanelContainer
 class_name TaskCard
 
-export(int) var detail_window_width = 1000
-export(int) var detail_window_height = 1000
+export(int) var detail_window_width = 600
+export(int) var detail_window_height = 400
 
 var _task: Task setget set_task, get_task
 onready var edit_button: Button = $VBoxContainer/HeaderPanelContainer/Padding/HLayout/EditButton
@@ -14,7 +14,6 @@ var _task_detail_has_been_built: bool = false
 
 #@virtual
 func _ready() -> void:
-	Events.connect("ui_deleted_task", self, "_on_ui_deleted_task")
 	Events.connect("ui_updated_task", self, "_on_ui_updated_task")
 	edit_button.connect("pressed", self, "_on_edit_task_pressed")
 
@@ -26,9 +25,6 @@ func set_task(task: Task) -> void:
 func get_task() -> Task:
 	return _task
 
-func _on_ui_deleted_task(task: Task) -> void:
-	if task.id == _task.id:
-		queue_free()
 
 func _on_ui_updated_task(task: Task) -> void:
 	if task.id == _task.id:

@@ -21,7 +21,6 @@ func set_project(project: Project) -> void:
 	window_title = "Edit project"
 	_project = project
 	populate_fields()
-	delete_button.visible = true
 
 func populate_fields() -> void:
 	"""
