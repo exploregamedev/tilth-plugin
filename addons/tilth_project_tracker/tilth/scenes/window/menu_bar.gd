@@ -6,24 +6,32 @@ var _project_list_scene_path: String = "res://addons/tilth_project_tracker/tilth
 onready var _project_crud_popup: WindowDialog = $ProjectCrudPopup
 onready var _preferences_popup: WindowDialog = $PreferencesDialog
 onready var _about_popup: Popup = $AboutPopup
-onready var _help_popup: Popup = $HelpPopup
 onready var _file_dialog: FileDialog = $ProjectFileDialog
 
 export(int) var create_project_window_width = 600
 export(int) var create_project_window_height = 600
 export(String) var help_menu_url = "https://github.com/exploregamedev/tilth-plugin"
 
+var project: Project setget set_project
 
 # Foreach key add a "_on_%s_menu_item_pressed" % key.to_lower() function
 var _menus: Dictionary = {
-	"Tilth": ["About", "Preferences"],
-	"Project": ["Load project from backup"],
+	# @todo turn prefs back on to get back ability to change data storage path
+	# #14 : https://github.com/exploregamedev/tilth-plugin/issues/14
+	#	"Tilth": ["About", "Preferences"],
+	"Tilth": ["About"],
+	"Project": ["Edit project"],
+	# @todo Backup disabled see: #15 : https://github.com/exploregamedev/tilth-plugin/issues/15
+	# "Project": ["Edit project", "Load project from backup"],
 	"Help": ["Docs"]
 }
 
 func _ready() -> void:
 	_file_dialog.connect("file_selected", self, "_on_file_selected")
 	_init_menu_items()
+
+func set_project(current_project: Project) -> void:
+	project = current_project
 
 func _init_menu_items() -> void:
 	for menu_name in _menus:
@@ -47,9 +55,14 @@ func _on_tilth_menu_item_pressed(menu_item: int):
 
 func _on_project_menu_item_pressed(menu_item: int):
 	match menu_item:
-		0: # load backup
-			var window_size = Vector2(600, 400)
-			_file_dialog.popup_centered(window_size)
+		0: # Edit project
+			var window_size = Vector2(create_project_window_width, create_project_window_height)
+			_project_crud_popup.popup_centered(window_size)
+			_project_crud_popup.set_project(project)
+# @todo Backup disabled see: #15 : https://github.com/exploregamedev/tilth-plugin/issues/15
+#		1: # load backup
+#			var window_size = Vector2(600, 400)
+#			_file_dialog.popup_centered(window_size)
 
 func _on_help_menu_item_pressed(menu_item: int):
 	match menu_item:

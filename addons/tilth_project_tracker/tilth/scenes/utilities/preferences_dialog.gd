@@ -47,11 +47,10 @@ func _on_data_dir_selected(dir_path: String) -> void:
 
 func _on_confirm_copy_yes_clicked() -> void:
 	Files.copy_dir_contents(_former_projects_persist_dir, AppSettings.resource_store_path)
-	SceneChanger.change_scene(_project_list_scene_path, 0)
 
 func _on_confirm_copy_no_clicked(action: String) -> void:
 	# No was clicked, do not copy projects to new folder
-	SceneChanger.change_scene(_project_list_scene_path, 0)
+	pass
 
 func _on_theme_selected(index: int) -> void:
 	AppSettings.current_theme = _theme_items_list.get_item_text(index).to_lower()

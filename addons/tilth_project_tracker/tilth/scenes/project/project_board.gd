@@ -5,33 +5,26 @@ extends PanelContainer
 var _project: Project
 var _stage_scene: PackedScene = preload("res://addons/tilth_project_tracker/tilth/scenes/stage/stage_column.tscn")
 var _stage_separator: PackedScene = preload("res://addons/tilth_project_tracker/tilth/scenes/stage/stage_column_separator.tscn")
+onready var _menu_bar: Container = $VLayout/MenuBar
 onready var stage_columns: HBoxContainer = $VLayout/Scroll/Padding/StageColumns
 
-func _unhandled_input(event):
-	if event is InputEventMouseButton:
-		if event.button_index == BUTTON_LEFT:
-			if not event.pressed:
-				print("Left button was released")
-				Events.emit_signal("mouse_drag_ended")
-
 func _ready() -> void:
-	print("Project board: _ready()")
 	set_theme(AppSettings.get_current_theme_resource())
-	# @Standalone
-#	OS.set_window_title("%s - %s" %
-#		[ProjectSettings.get_setting("application/config/name"),
-#		 ProjectSettings.get_setting("application/config/version")])
+	_menu_bar.project = _project
 	Events.connect("ui_added_stage", self, "_on_ui_added_stage")
 	Events.connect("ui_deleted_stage", self, "_on_ui_deleted_stage")
 	Events.connect("ui_updated_task", self, "_on_ui_updated_task")
 	Events.connect("ui_added_task_activity", self, "_on_ui_added_task_activity")
 	Events.connect("ui_reorded_project_stages", self, "_on_ui_reorded_project_stages")
 	Events.connect("app_settings_changed", self, "_on_app_settings_changed")
-	Backup.start_backup_timer(60)
+	# @todo Backup disabled see: #15 : https://github.com/exploregamedev/tilth-plugin/issues/15
+	# Backup.start_backup_timer(60)
 	_reload_board()
 
 func set_project(project: Project) -> void:
 	_project = project
+
+
 
 func _load_stages(project: Project) -> void:
 	"""
@@ -51,7 +44,6 @@ func _load_stages(project: Project) -> void:
 			stage_columns.add_child(_get_stage_seperator(stages[i], null))
 		else:
 			stage_columns.add_child(_get_stage_seperator(stages[i], stages[i+1]))
-	print("Number of children on stage_columns: %s" % stage_columns.get_child_count())
 
 func _add_stage_panel(stage: Stage) -> PanelContainer:
 	var stage_panel = _stage_scene.instance()

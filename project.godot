@@ -75,8 +75,6 @@ config/icon="res://icon.png"
 
 Events="*res://addons/tilth_project_tracker/tilth/auto_loads/events.gd"
 AppSettings="*res://addons/tilth_project_tracker/tilth/auto_loads/app_settings.gd"
-SceneChanger="*res://addons/tilth_project_tracker/tilth/auto_loads/scene_changer.gd"
-Backup="*res://addons/tilth_project_tracker/tilth/auto_loads/backup.gd"
 
 [editor_plugins]
 

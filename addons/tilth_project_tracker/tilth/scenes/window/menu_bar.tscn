@@ -22,7 +22,7 @@ __meta__ = {
 
 [node name="Padding" type="MarginContainer" parent="."]
 margin_right = 1366.0
-margin_bottom = 327.0
+margin_bottom = 40.0
 custom_constants/margin_top = 10
 custom_constants/margin_left = 15
 custom_constants/margin_bottom = 10
@@ -31,32 +31,31 @@ custom_constants/margin_bottom = 10
 margin_left = 15.0
 margin_top = 10.0
 margin_right = 1366.0
-margin_bottom = 317.0
+margin_bottom = 30.0
 custom_constants/separation = 20
 
 [node name="Tilth" type="MenuButton" parent="Padding/HLayout"]
 margin_right = 38.0
-margin_bottom = 307.0
+margin_bottom = 20.0
 focus_mode = 2
 size_flags_horizontal = 0
 text = "Tilth"
-items = [ "About", null, 0, false, false, 0, 0, null, "", false, "Preferences", null, 0, false, false, 1, 0, null, "", false ]
+items = [ "About", null, 0, false, false, 0, 0, null, "", false ]
 switch_on_hover = true
 
 [node name="Project" type="MenuButton" parent="Padding/HLayout"]
 margin_left = 58.0
 margin_right = 113.0
-margin_bottom = 307.0
+margin_bottom = 20.0
 focus_mode = 2
 size_flags_horizontal = 0
 text = "Project"
-items = [ "Load project from backup", null, 0, false, false, 0, 0, null, "", false ]
 switch_on_hover = true
 
 [node name="Help" type="MenuButton" parent="Padding/HLayout"]
 margin_left = 133.0
 margin_right = 173.0
-margin_bottom = 307.0
+margin_bottom = 20.0
 focus_mode = 2
 size_flags_horizontal = 0
 text = "Help"
@@ -86,8 +85,8 @@ resizable = true
 mode = 0
 access = 2
 filters = PoolStringArray( "*.tres ; Resource files" )
-current_dir = "/Users/sam/Library/Application Support/Godot/app_userdata/Tilth plugin"
-current_path = "/Users/sam/Library/Application Support/Godot/app_userdata/Tilth plugin/"
+current_dir = "/Users/sam/Desktop/02"
+current_path = "/Users/sam/Desktop/02/"
 script = ExtResource( 5 )
 
 [node name="PreferencesDialog" parent="." instance=ExtResource( 8 )]
