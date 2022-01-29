@@ -1,9 +1,6 @@
 tool
 extends EditorPlugin
 
-const ProjectBoard = preload("res://addons/tilth_project_tracker/tilth/scenes/project/project_board.tscn")
-
-
 var project_board_instance: Control
 
 
@@ -16,7 +13,8 @@ const Singletons = {
 
 func _enter_tree() -> void:
     auto_loads("add")
-    project_board_instance = ProjectBoard.instance()
+    var project_board = load("res://addons/tilth_project_tracker/tilth/scenes/project/project_board.tscn")
+    project_board_instance = project_board.instance()
     project_board_instance.app_version = _get_plugin_version()
     # Add the main panel to the editor's main viewport.
     get_editor_interface().get_editor_viewport().add_child(project_board_instance)
