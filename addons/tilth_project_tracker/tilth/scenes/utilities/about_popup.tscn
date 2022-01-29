@@ -1,27 +1,12 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://addons/tilth_project_tracker/tilth/themes/light/panel-material-dark.tres" type="StyleBox" id=1]
 [ext_resource path="res://addons/tilth_project_tracker/tilth/scenes/utilities/about_popup.gd" type="Script" id=3]
 [ext_resource path="res://addons/tilth_project_tracker/tilth/fonts/source_sans_pro/bolder-panel-title.tres" type="DynamicFont" id=4]
-[ext_resource path="res://addons/tilth_project_tracker/tilth/themes/light/panel-material-primary.tres" type="StyleBox" id=6]
-[ext_resource path="res://addons/tilth_project_tracker/tilth/themes/light/panel-material-gray-medium.tres" type="StyleBox" id=7]
-
-[sub_resource type="StyleBoxFlat" id=2]
-bg_color = Color( 0.882353, 0.937255, 0.968627, 1 )
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color( 0.156863, 0.133333, 0.133333, 1 )
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
 
 [node name="AboutPopup" type="PopupPanel"]
+visible = true
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_styles/panel = SubResource( 2 )
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -41,54 +26,57 @@ __meta__ = {
 
 [node name="TopBar" type="PanelContainer" parent="VLayout"]
 margin_right = 1018.0
-margin_bottom = 101.0
-custom_styles/panel = ExtResource( 1 )
+margin_bottom = 115.0
 
 [node name="Padding" type="MarginContainer" parent="VLayout/TopBar"]
-margin_right = 1018.0
-margin_bottom = 101.0
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 1011.0
+margin_bottom = 108.0
 
 [node name="Title" type="Label" parent="VLayout/TopBar/Padding"]
-margin_right = 1018.0
+margin_right = 1004.0
 margin_bottom = 101.0
 custom_fonts/font = ExtResource( 4 )
 text = "Tilth studio plugin"
 align = 1
 
 [node name="HeaderPanel" type="PanelContainer" parent="VLayout"]
-margin_top = 101.0
+margin_top = 115.0
 margin_right = 1018.0
-margin_bottom = 155.0
-custom_styles/panel = ExtResource( 6 )
+margin_bottom = 183.0
 
 [node name="Padding" type="MarginContainer" parent="VLayout/HeaderPanel"]
-margin_right = 1018.0
-margin_bottom = 54.0
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 1011.0
+margin_bottom = 61.0
 custom_constants/margin_top = 20
 custom_constants/margin_bottom = 20
 
 [node name="HLayout" type="HBoxContainer" parent="VLayout/HeaderPanel/Padding"]
 margin_top = 20.0
-margin_right = 1018.0
+margin_right = 1004.0
 margin_bottom = 34.0
 
 [node name="VersionLabel" type="Label" parent="VLayout/HeaderPanel/Padding/HLayout"]
-margin_right = 1018.0
+margin_right = 1004.0
 margin_bottom = 14.0
 size_flags_horizontal = 3
 text = "v0.1.0"
 align = 1
 
 [node name="BodyPanel" type="PanelContainer" parent="VLayout"]
-margin_top = 155.0
+margin_top = 183.0
 margin_right = 1018.0
 margin_bottom = 594.0
 size_flags_vertical = 3
-custom_styles/panel = ExtResource( 7 )
 
 [node name="Padding" type="MarginContainer" parent="VLayout/BodyPanel"]
-margin_right = 1018.0
-margin_bottom = 439.0
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 1011.0
+margin_bottom = 404.0
 custom_constants/margin_right = 20
 custom_constants/margin_top = 20
 custom_constants/margin_left = 20
@@ -97,19 +85,19 @@ custom_constants/margin_bottom = 20
 [node name="VLayout" type="VBoxContainer" parent="VLayout/BodyPanel/Padding"]
 margin_left = 20.0
 margin_top = 20.0
-margin_right = 998.0
-margin_bottom = 419.0
+margin_right = 984.0
+margin_bottom = 377.0
 custom_constants/separation = 40
 
 [node name="Desc" type="Label" parent="VLayout/BodyPanel/Padding/VLayout"]
-margin_right = 978.0
+margin_right = 964.0
 margin_bottom = 31.0
 text = "Tilth studio plugin is an application for planning and
  tracking tasks to build video games. "
 
 [node name="MoreDetailsLink" type="RichTextLabel" parent="VLayout/BodyPanel/Padding/VLayout"]
 margin_top = 71.0
-margin_right = 978.0
+margin_right = 964.0
 margin_bottom = 86.0
 bbcode_enabled = true
 bbcode_text = "[color=navy][url=https://github.com/exploregamedev/tilth-plugin]More details here[/url][/color]"
@@ -118,8 +106,8 @@ fit_content_height = true
 
 [node name="Developer" type="RichTextLabel" parent="VLayout/BodyPanel/Padding/VLayout"]
 margin_top = 126.0
-margin_right = 978.0
-margin_bottom = 399.0
+margin_right = 964.0
+margin_bottom = 357.0
 size_flags_vertical = 3
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode_enabled = true

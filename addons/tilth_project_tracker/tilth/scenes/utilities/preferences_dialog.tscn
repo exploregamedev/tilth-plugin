@@ -1,25 +1,13 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=2 format=2]
 
 [ext_resource path="res://addons/tilth_project_tracker/tilth/scenes/utilities/preferences_dialog.gd" type="Script" id=2]
-[ext_resource path="res://addons/tilth_project_tracker/tilth/themes/light/panel-material-light.tres" type="StyleBox" id=3]
-[ext_resource path="res://addons/tilth_project_tracker/tilth/themes/light/popup-material-gray-light.tres" type="StyleBox" id=5]
-
-[sub_resource type="StyleBoxFlat" id=1]
-bg_color = Color( 0.960784, 0.960784, 0.964706, 1 )
-border_width_left = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color( 0.4, 0.443137, 0.466667, 1 )
-
-[sub_resource type="StyleBoxFlat" id=2]
-bg_color = Color( 0.686275, 0.741176, 0.768627, 1 )
 
 [node name="PreferencesDialog" type="WindowDialog"]
+visible = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_constants/close_v_ofs = 40
 custom_constants/title_height = 40
-custom_styles/panel = ExtResource( 5 )
 window_title = "Preferences"
 script = ExtResource( 2 )
 __meta__ = {
@@ -29,24 +17,25 @@ __meta__ = {
 [node name="PaneBorder" type="PanelContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_styles/panel = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="VBoxLayout" type="VBoxContainer" parent="PaneBorder"]
-margin_left = 3.0
-margin_right = 1021.0
-margin_bottom = 597.0
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 1017.0
+margin_bottom = 593.0
 
 [node name="BodyContainer" type="PanelContainer" parent="PaneBorder/VBoxLayout"]
-margin_right = 1018.0
-margin_bottom = 110.0
-custom_styles/panel = SubResource( 2 )
+margin_right = 1010.0
+margin_bottom = 138.0
 
 [node name="Padding" type="MarginContainer" parent="PaneBorder/VBoxLayout/BodyContainer"]
-margin_right = 1018.0
-margin_bottom = 110.0
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 1003.0
+margin_bottom = 131.0
 custom_constants/margin_right = 5
 custom_constants/margin_top = 15
 custom_constants/margin_left = 5
@@ -58,8 +47,8 @@ __meta__ = {
 [node name="VLayout" type="VBoxContainer" parent="PaneBorder/VBoxLayout/BodyContainer/Padding"]
 margin_left = 5.0
 margin_top = 15.0
-margin_right = 1013.0
-margin_bottom = 95.0
+margin_right = 991.0
+margin_bottom = 109.0
 custom_constants/separation = 20
 
 [node name="ThemeVBoxContainer" type="VBoxContainer" parent="PaneBorder/VBoxLayout/BodyContainer/Padding/VLayout"]
@@ -76,7 +65,6 @@ text = "Theme (more themes in the works):"
 margin_top = 18.0
 margin_right = 1008.0
 margin_bottom = 44.0
-custom_styles/panel = ExtResource( 3 )
 
 [node name="Paddings" type="MarginContainer" parent="PaneBorder/VBoxLayout/BodyContainer/Padding/VLayout/ThemeVBoxContainer/PanelContainer"]
 margin_right = 1008.0
@@ -93,33 +81,34 @@ margin_right = 63.0
 margin_bottom = 23.0
 size_flags_horizontal = 0
 text = "Light"
-items = [ "Light", null, false, 0, null, "Light", null, false, 1, null, "Light", null, false, 2, null ]
+items = [ "Light", null, false, 0, null, "Light", null, false, 1, null, "Light", null, false, 2, null, "Light", null, false, 3, null ]
 selected = 0
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="PaneBorder/VBoxLayout/BodyContainer/Padding/VLayout"]
-margin_right = 1008.0
-margin_bottom = 80.0
+margin_right = 986.0
+margin_bottom = 94.0
 
 [node name="DataPathLabel" type="Label" parent="PaneBorder/VBoxLayout/BodyContainer/Padding/VLayout/VBoxContainer2"]
-margin_right = 1008.0
+margin_right = 986.0
 margin_bottom = 14.0
 text = "Data path"
 
 [node name="DataPathNote" type="Label" parent="PaneBorder/VBoxLayout/BodyContainer/Padding/VLayout/VBoxContainer2"]
 margin_top = 18.0
-margin_right = 1008.0
+margin_right = 986.0
 margin_bottom = 32.0
 text = "consider setting to a cloud synced folder. e.g. GoogleDrive, Dropbox, ..."
 
 [node name="PanelContainer" type="PanelContainer" parent="PaneBorder/VBoxLayout/BodyContainer/Padding/VLayout/VBoxContainer2"]
 margin_top = 36.0
-margin_right = 1008.0
-margin_bottom = 56.0
-custom_styles/panel = ExtResource( 3 )
+margin_right = 986.0
+margin_bottom = 70.0
 
 [node name="Padding" type="MarginContainer" parent="PaneBorder/VBoxLayout/BodyContainer/Padding/VLayout/VBoxContainer2/PanelContainer"]
-margin_right = 1008.0
-margin_bottom = 20.0
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 979.0
+margin_bottom = 27.0
 custom_constants/margin_right = 3
 custom_constants/margin_top = 3
 custom_constants/margin_left = 3
@@ -128,15 +117,15 @@ custom_constants/margin_bottom = 3
 [node name="DataPathValue" type="Label" parent="PaneBorder/VBoxLayout/BodyContainer/Padding/VLayout/VBoxContainer2/PanelContainer/Padding"]
 margin_left = 3.0
 margin_top = 3.0
-margin_right = 1005.0
+margin_right = 969.0
 margin_bottom = 17.0
 size_flags_horizontal = 3
 text = "/Users/sam/Desktop/02"
 
 [node name="BrowseButton" type="Button" parent="PaneBorder/VBoxLayout/BodyContainer/Padding/VLayout/VBoxContainer2"]
-margin_top = 60.0
-margin_right = 1008.0
-margin_bottom = 80.0
+margin_top = 74.0
+margin_right = 986.0
+margin_bottom = 94.0
 text = "Browse"
 
 [node name="DataPathFileDialog" type="FileDialog" parent="."]

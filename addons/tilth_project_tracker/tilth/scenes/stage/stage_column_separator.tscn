@@ -5,7 +5,7 @@
 [node name="StageColumnSeparator" type="ColorRect"]
 anchor_bottom = 1.0
 rect_min_size = Vector2( 40, 0 )
-color = Color( 0.960784, 0.960784, 0.964706, 1 )
+color = Color( 0.282353, 0.305882, 0.368627, 1 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false

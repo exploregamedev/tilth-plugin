@@ -1,18 +1,13 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://addons/tilth_project_tracker/tilth/scenes/stage/stage_column.gd" type="Script" id=1]
 [ext_resource path="res://addons/tilth_project_tracker/tilth/scenes/stage/stage_column_header.gd" type="Script" id=2]
-[ext_resource path="res://addons/tilth_project_tracker/tilth/themes/light/panel-material-gray-light.tres" type="StyleBox" id=4]
-
-[sub_resource type="StyleBoxFlat" id=2]
-bg_color = Color( 0.501961, 0.556863, 0.584314, 1 )
 
 [node name="StageColumn" type="PanelContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_min_size = Vector2( 600, 0 )
 size_flags_horizontal = 3
-custom_styles/panel = ExtResource( 4 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -20,20 +15,23 @@ __meta__ = {
 min_column_width = 600
 
 [node name="VLayout" type="VBoxContainer" parent="."]
-margin_right = 1024.0
-margin_bottom = 600.0
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 1017.0
+margin_bottom = 593.0
 
 [node name="ColumnHeader" type="PanelContainer" parent="VLayout"]
-margin_right = 1024.0
-margin_bottom = 34.0
+margin_right = 1010.0
+margin_bottom = 48.0
 mouse_filter = 1
 mouse_default_cursor_shape = 6
-custom_styles/panel = SubResource( 2 )
 script = ExtResource( 2 )
 
 [node name="Padding" type="MarginContainer" parent="VLayout/ColumnHeader"]
-margin_right = 1024.0
-margin_bottom = 34.0
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 1003.0
+margin_bottom = 41.0
 mouse_filter = 1
 custom_constants/margin_right = 5
 custom_constants/margin_top = 5
@@ -43,43 +41,43 @@ custom_constants/margin_bottom = 5
 [node name="HLayout" type="HBoxContainer" parent="VLayout/ColumnHeader/Padding"]
 margin_left = 5.0
 margin_top = 5.0
-margin_right = 1019.0
+margin_right = 991.0
 margin_bottom = 29.0
 
 [node name="StageTitle" type="LineEdit" parent="VLayout/ColumnHeader/Padding/HLayout"]
-margin_right = 482.0
+margin_right = 468.0
 margin_bottom = 24.0
 size_flags_horizontal = 3
 
 [node name="SaveStage" type="Button" parent="VLayout/ColumnHeader/Padding/HLayout"]
-margin_left = 486.0
-margin_right = 527.0
+margin_left = 472.0
+margin_right = 513.0
 margin_bottom = 24.0
 text = "Save"
 
 [node name="AddStageContainer" type="HBoxContainer" parent="VLayout/ColumnHeader/Padding/HLayout"]
-margin_left = 531.0
-margin_right = 1014.0
+margin_left = 517.0
+margin_right = 986.0
 margin_bottom = 24.0
 size_flags_horizontal = 3
 alignment = 2
 
 [node name="AddStageButton" type="Button" parent="VLayout/ColumnHeader/Padding/HLayout/AddStageContainer"]
-margin_left = 425.0
-margin_right = 483.0
+margin_left = 411.0
+margin_right = 469.0
 margin_bottom = 24.0
 grow_horizontal = 0
 text = "+ Stage"
 
 [node name="Scroll" type="ScrollContainer" parent="VLayout"]
-margin_top = 38.0
-margin_right = 1024.0
-margin_bottom = 600.0
+margin_top = 52.0
+margin_right = 1010.0
+margin_bottom = 586.0
 size_flags_vertical = 3
 scroll_horizontal_enabled = false
 
 [node name="Padding" type="MarginContainer" parent="VLayout/Scroll"]
-margin_right = 1024.0
+margin_right = 1010.0
 margin_bottom = 68.0
 size_flags_horizontal = 3
 custom_constants/margin_right = 10
@@ -90,25 +88,25 @@ custom_constants/margin_bottom = 10
 [node name="Column" type="VBoxContainer" parent="VLayout/Scroll/Padding"]
 margin_left = 10.0
 margin_top = 10.0
-margin_right = 1014.0
+margin_right = 1000.0
 margin_bottom = 58.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="TaskRows" type="VBoxContainer" parent="VLayout/Scroll/Padding/Column"]
-margin_right = 1004.0
+margin_right = 990.0
 
 [node name="AddTaskContainer" type="HBoxContainer" parent="VLayout/Scroll/Padding/Column"]
 margin_top = 4.0
-margin_right = 1004.0
+margin_right = 990.0
 margin_bottom = 24.0
 size_flags_horizontal = 3
 alignment = 2
 
 [node name="AddTaskButton" type="Button" parent="VLayout/Scroll/Padding/Column/AddTaskContainer"]
-margin_left = 952.0
-margin_right = 1004.0
+margin_left = 938.0
+margin_right = 990.0
 margin_bottom = 20.0
 grow_horizontal = 0
 text = "+ Task"
