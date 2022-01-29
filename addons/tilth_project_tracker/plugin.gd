@@ -16,6 +16,7 @@ const Singletons = {
 
 func _enter_tree() -> void:
 	auto_loads("add")
+	AppSettings.app_version = _get_plugin_version()
 	project_board_instance = ProjectBoard.instance()
 	var project_repo = ResourceRepository.new()
 	project_repo.init("Project", AppSettings.resource_store_path)
@@ -64,3 +65,11 @@ func auto_loads(add_or_remove: String) -> void:
 	else:
 		for autoload_name in Singletons:
 			remove_autoload_singleton(autoload_name)
+
+func _get_plugin_version() -> String:
+	var _version_number = ""
+	var config = ConfigFile.new()
+	var read_result = config.load("res://addons/tilth_project_tracker/plugin.cfg")
+	if read_result == OK:
+		_version_number = config.get_value("plugin", "version")
+	return _version_number

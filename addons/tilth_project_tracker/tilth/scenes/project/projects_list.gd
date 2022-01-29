@@ -15,8 +15,7 @@ var project_panel: PackedScene = preload("res://addons/tilth_project_tracker/til
 func _ready() -> void:
 	set_theme(AppSettings.get_current_theme_resource())
 	OS.set_window_title("%s - %s" %
-		[ProjectSettings.get_setting("application/config/name"),
-		 ProjectSettings.get_setting("application/config/version")])
+		[ProjectSettings.get_setting("application/config/name"), AppSettings.app_version])
 	Events.connect("project_deleted", self, "_on_project_deleted")
 	Events.connect("project_created", self, "_on_project_created")
 	Events.connect("app_settings_changed", self, "_on_app_settings_changed")

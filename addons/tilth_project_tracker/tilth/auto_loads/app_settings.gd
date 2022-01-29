@@ -17,6 +17,7 @@ var _settings: Dictionary = {
 	"create_timestamp": OS.get_unix_time(),
 	"resource_store_path": OS.get_user_data_dir(),
 	"current_theme": "light",
+	"app_version": "",
 }
 
 var _current_theme_resource: Theme
@@ -44,8 +45,8 @@ func _get(property: String):
 
 func _set(property: String, value) -> bool:
 	if not property in _settings:
-		printerr("[ERROR] AppSettings has no property: %s" % property)
-		return false
+		print("Adding new AppSetting: %s = %s" % [property, value])
+		_save_state()
 	if property == "current_theme":
 		_settings[property] = value.to_lower()
 		_build_theme_resource()
