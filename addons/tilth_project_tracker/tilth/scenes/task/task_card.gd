@@ -3,8 +3,8 @@ tool
 extends PanelContainer
 class_name TaskCard
 
-export(int) var detail_window_width = 600
-export(int) var detail_window_height = 600
+export(int) var detail_window_width = 1000
+export(int) var detail_window_height = 1000
 
 var _task: Task setget set_task, get_task
 onready var edit_button: Button = $VBoxContainer/HeaderPanelContainer/Padding/HLayout/EditButton
@@ -36,7 +36,7 @@ func _on_ui_updated_task(task: Task) -> void:
 		_update_task_ui()
 
 func _on_edit_task_pressed() -> void:
-	task_detail_popup.popup_centered(Vector2(detail_window_width, detail_window_height))
+	task_detail_popup.popup_centered_minsize(Vector2(detail_window_width, detail_window_height))
 	if not _task_detail_has_been_built:
 		task_detail_popup.set_task(_task)
 	_task_detail_has_been_built = true

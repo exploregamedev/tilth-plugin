@@ -23,6 +23,8 @@ corner_radius_bottom_left = 5
 [node name="Panel" type="PanelContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+rect_min_size = Vector2( 500, 400 )
+size_flags_vertical = 3
 custom_styles/panel = SubResource( 3 )
 script = ExtResource( 2 )
 __meta__ = {
@@ -30,15 +32,17 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-margin_right = 1366.0
-margin_bottom = 768.0
+margin_right = 1024.0
+margin_bottom = 600.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 custom_constants/separation = 0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="HeaderPanelContainer" type="PanelContainer" parent="VBoxContainer"]
-margin_right = 1366.0
+margin_right = 1024.0
 margin_bottom = 42.0
 mouse_filter = 1
 custom_styles/panel = SubResource( 4 )
@@ -47,7 +51,7 @@ __meta__ = {
 }
 
 [node name="Padding" type="MarginContainer" parent="VBoxContainer/HeaderPanelContainer"]
-margin_right = 1366.0
+margin_right = 1024.0
 margin_bottom = 42.0
 mouse_filter = 1
 custom_constants/margin_right = 7
@@ -58,7 +62,7 @@ custom_constants/margin_bottom = 7
 [node name="HLayout" type="HBoxContainer" parent="VBoxContainer/HeaderPanelContainer/Padding"]
 margin_left = 5.0
 margin_top = 5.0
-margin_right = 1359.0
+margin_right = 1017.0
 margin_bottom = 35.0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -66,37 +70,37 @@ __meta__ = {
 
 [node name="TitleLabel" type="Label" parent="VBoxContainer/HeaderPanelContainer/Padding/HLayout"]
 margin_top = 8.0
-margin_right = 655.0
+margin_right = 484.0
 margin_bottom = 22.0
 size_flags_horizontal = 3
 text = "Task title"
 
 [node name="IdLabel" type="Label" parent="VBoxContainer/HeaderPanelContainer/Padding/HLayout"]
-margin_left = 659.0
+margin_left = 488.0
 margin_top = 8.0
-margin_right = 1314.0
+margin_right = 972.0
 margin_bottom = 22.0
 size_flags_horizontal = 3
 text = "# 01"
 align = 2
 
 [node name="EditButton" type="Button" parent="VBoxContainer/HeaderPanelContainer/Padding/HLayout"]
-margin_left = 1318.0
-margin_right = 1354.0
+margin_left = 976.0
+margin_right = 1012.0
 margin_bottom = 30.0
 icon = ExtResource( 3 )
 flat = true
 
 [node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
 margin_top = 42.0
-margin_right = 1366.0
-margin_bottom = 768.0
+margin_right = 1024.0
+margin_bottom = 600.0
 size_flags_vertical = 3
 custom_styles/panel = SubResource( 2 )
 
 [node name="Padding" type="MarginContainer" parent="VBoxContainer/PanelContainer"]
-margin_right = 1366.0
-margin_bottom = 726.0
+margin_right = 1024.0
+margin_bottom = 558.0
 mouse_filter = 1
 custom_constants/margin_right = 10
 custom_constants/margin_top = 10
@@ -106,13 +110,13 @@ custom_constants/margin_bottom = 10
 [node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/PanelContainer/Padding"]
 margin_left = 10.0
 margin_top = 10.0
-margin_right = 1356.0
-margin_bottom = 716.0
+margin_right = 1014.0
+margin_bottom = 548.0
 rect_min_size = Vector2( 0, 100 )
 scroll_horizontal_enabled = false
 
 [node name="DescLabel" type="Label" parent="VBoxContainer/PanelContainer/Padding/ScrollContainer"]
-margin_right = 1346.0
+margin_right = 1004.0
 margin_bottom = 65.0
 size_flags_horizontal = 3
 text = "This is some text
@@ -122,7 +126,6 @@ description
 autowrap = true
 
 [node name="TaskDetail" parent="." instance=ExtResource( 1 )]
-visible = false
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 1366.0
