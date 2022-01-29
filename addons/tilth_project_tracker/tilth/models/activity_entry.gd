@@ -11,10 +11,10 @@ export(String) var text: String
 var _task: Resource setget set_parent_task, task
 
 func set_parent_task(task: Resource) -> void:
-	_task = task
+    _task = task
 
 func task() -> Resource:
-	return _task
+    return _task
 
 func _to_string() -> String:
-	return "TaskActivity[%s]" % id
+    return "TaskActivity[%s]" % id

@@ -22,19 +22,19 @@ https://github.com/godotengine/godot-proposals/issues/18
 export(Array, Resource) var activity_entries
 
 func new_activity_entry() -> ActivityEntry:
-	var activity := ActivityEntry.new()
-	activity.set_parent_task(self)
-	activity.id = Uuid.v4()
-	activity.create_timestamp = OS.get_unix_time()
-	activity_entries.append(activity)
-	print("%s added to %s" % [activity, self])
-	return activity
+    var activity := ActivityEntry.new()
+    activity.set_parent_task(self)
+    activity.id = Uuid.v4()
+    activity.create_timestamp = OS.get_unix_time()
+    activity_entries.append(activity)
+    print("%s added to %s" % [activity, self])
+    return activity
 
 func _to_string() -> String:
-	return "Task[%s]" % id
+    return "Task[%s]" % id
 
 func set_parent_stage(parent_stage) -> void:
-	_parent_stage = parent_stage
+    _parent_stage = parent_stage
 
 func stage() -> Resource:
-	return _parent_stage
+    return _parent_stage
