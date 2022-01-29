@@ -2,16 +2,11 @@ tool
 
 extends Node
 
-const THEME_PATH := "res://addons/tilth_project_tracker/tilth/themes/"
+const THEME_PATH = "res://addons/tilth_project_tracker/tilth/themes/"
 const THEME_MAP = {
 	"light": "light/theme_light.tres",
-# @TODO enable dark theme
-#       Will need process to not only select main theme file but also apply
-#       theme specific tweaks to components in specific contexts based on the
-#       overall theme.
-#	"dark": "dark/theme_dark.tres"
 }
-const THEME_DEFAULT = "dark"
+const THEME_DEFAULT = "light"
 
 var _settings: Dictionary = {
 	"create_timestamp": OS.get_unix_time(),

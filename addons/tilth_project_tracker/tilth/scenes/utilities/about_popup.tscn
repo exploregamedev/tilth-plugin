@@ -1,7 +1,6 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://addons/tilth_project_tracker/tilth/themes/light/panel-material-dark.tres" type="StyleBox" id=1]
-[ext_resource path="res://addons/tilth_project_tracker/tilth/themes/light/theme_light.tres" type="Theme" id=2]
 [ext_resource path="res://addons/tilth_project_tracker/tilth/scenes/utilities/about_popup.gd" type="Script" id=3]
 [ext_resource path="res://addons/tilth_project_tracker/tilth/fonts/source_sans_pro/bolder-panel-title.tres" type="DynamicFont" id=4]
 [ext_resource path="res://addons/tilth_project_tracker/tilth/themes/light/panel-material-primary.tres" type="StyleBox" id=6]
@@ -22,7 +21,6 @@ corner_radius_bottom_left = 3
 [node name="AboutPopup" type="PopupPanel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-theme = ExtResource( 2 )
 custom_styles/panel = SubResource( 2 )
 script = ExtResource( 3 )
 __meta__ = {
@@ -78,7 +76,7 @@ margin_bottom = 34.0
 margin_right = 1018.0
 margin_bottom = 14.0
 size_flags_horizontal = 3
-text = "not set"
+text = "v0.1.0"
 align = 1
 
 [node name="BodyPanel" type="PanelContainer" parent="VLayout"]

@@ -9,7 +9,6 @@ onready var _menu_bar: Container = $VLayout/MenuBar
 onready var stage_columns: HBoxContainer = $VLayout/Scroll/Padding/StageColumns
 
 func _ready() -> void:
-	set_theme(AppSettings.get_current_theme_resource())
 	_menu_bar.project = _project
 	Events.connect("ui_added_stage", self, "_on_ui_added_stage")
 	Events.connect("ui_deleted_stage", self, "_on_ui_deleted_stage")
@@ -93,5 +92,3 @@ func _get_stage_seperator(before_stage: Stage, after_stage: Stage) -> Control:
 	stage_separator.stage_after = after_stage
 	return stage_separator
 
-func _on_app_settings_changed():
-	set_theme(AppSettings.get_current_theme_resource())
