@@ -11,6 +11,7 @@ onready var _file_dialog: FileDialog = $ProjectFileDialog
 
 export(int) var create_project_window_width = 600
 export(int) var create_project_window_height = 600
+export(String) var help_menu_url = "https://github.com/exploregamedev/tilth-plugin"
 
 
 # Foreach key add a "_on_%s_menu_item_pressed" % key.to_lower() function
@@ -38,7 +39,7 @@ func _init_menu_items() -> void:
 func _on_tilth_menu_item_pressed(menu_item: int):
 	match menu_item:
 		0: # About
-			var window_size = Vector2(600, 500)
+			var window_size = Vector2(800, 600)
 			_about_popup.popup_centered(window_size)
 		1: # Preferences
 			var window_size = Vector2(800, 600)
@@ -53,8 +54,7 @@ func _on_project_menu_item_pressed(menu_item: int):
 func _on_help_menu_item_pressed(menu_item: int):
 	match menu_item:
 		0: # Docs
-			var window_size = Vector2(600, 600)
-			_help_popup.popup_centered(window_size)
+			OS.shell_open(help_menu_url)
 
 func _on_file_selected(file_path: String) -> void:
 	"""

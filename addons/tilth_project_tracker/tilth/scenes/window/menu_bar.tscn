@@ -1,10 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://addons/tilth_project_tracker/tilth/themes/light/theme_light.tres" type="Theme" id=1]
 [ext_resource path="res://addons/tilth_project_tracker/tilth/scenes/window/menu_bar.gd" type="Script" id=3]
 [ext_resource path="res://addons/tilth_project_tracker/tilth/scenes/project/project_crud/project_crud_popup.tscn" type="PackedScene" id=4]
 [ext_resource path="res://addons/tilth_project_tracker/tilth/scenes/window/project_file_dialog.gd" type="Script" id=5]
-[ext_resource path="res://addons/tilth_project_tracker/tilth/scenes/utilities/help_popup.tscn" type="PackedScene" id=6]
 [ext_resource path="res://addons/tilth_project_tracker/tilth/scenes/utilities/about_popup.tscn" type="PackedScene" id=7]
 [ext_resource path="res://addons/tilth_project_tracker/tilth/scenes/utilities/preferences_dialog.tscn" type="PackedScene" id=8]
 
@@ -65,10 +64,11 @@ items = [ "Docs", null, 0, false, false, 0, 0, null, "", false ]
 switch_on_hover = true
 
 [node name="ProjectCrudPopup" parent="." instance=ExtResource( 4 )]
+visible = false
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 1366.0
-margin_bottom = 289.0
+margin_bottom = 201.0
 
 [node name="AboutPopup" parent="." instance=ExtResource( 7 )]
 anchor_right = 0.0
@@ -89,12 +89,6 @@ filters = PoolStringArray( "*.tres ; Resource files" )
 current_dir = "/Users/sam/Library/Application Support/Godot/app_userdata/Tilth plugin"
 current_path = "/Users/sam/Library/Application Support/Godot/app_userdata/Tilth plugin/"
 script = ExtResource( 5 )
-
-[node name="HelpPopup" parent="." instance=ExtResource( 6 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 1366.0
-margin_bottom = 322.0
 
 [node name="PreferencesDialog" parent="." instance=ExtResource( 8 )]
 visible = false
