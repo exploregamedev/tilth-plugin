@@ -5,15 +5,18 @@ extends WindowDialog
 var _project_list_scene_path: String = "res://addons/tilth_project_tracker/tilth/scenes/project/projects_list.tscn"
 var _former_projects_persist_dir: String
 
-onready var _data_path_button: Button = $PaneBorder/VBoxLayout/BodyContainer/Padding/VLayout/VBoxContainer2/PanelContainer/Padding/HLayoutDataPath/BrowseButton
-onready var _data_path_value: Label = $PaneBorder/VBoxLayout/BodyContainer/Padding/VLayout/VBoxContainer2/PanelContainer/Padding/HLayoutDataPath/DataPathValue
+onready var _data_path_button: Button = $PaneBorder/VBoxLayout/BodyContainer/Padding/VLayout/VBoxContainer2/BrowseButton
+onready var _data_path_value: Label = $PaneBorder/VBoxLayout/BodyContainer/Padding/VLayout/VBoxContainer2/PanelContainer/Padding/DataPathValue
 onready var _data_path_file_dialog: FileDialog = $DataPathFileDialog
 onready var _confirm_copy_project: AcceptDialog = $ConfirmCopyProjects
-onready var _theme_items_list: OptionButton = $PaneBorder/VBoxLayout/BodyContainer/Padding/VLayout/VBoxContainer/PanelContainer/Paddings/ThemeOptions
+onready var _theme_items_list: OptionButton = $PaneBorder/VBoxLayout/BodyContainer/Padding/VLayout/ThemeVBoxContainer/PanelContainer/Paddings/ThemeOptions
 
-var _file_dialog_size := Vector2(600, 800)
+var _file_dialog_size := Vector2(800, 600)
 
 func _ready() -> void:
+	# @standalone
+	$PaneBorder/VBoxLayout/BodyContainer/Padding/VLayout/ThemeVBoxContainer.visible = false
+
 	_data_path_button.connect("pressed", self, "_on_browse_data_path_pressed")
 	_data_path_file_dialog.connect("dir_selected", self, "_on_data_dir_selected")
 
@@ -29,7 +32,7 @@ func _ready() -> void:
 	_theme_items_list.select(0)
 
 func _on_browse_data_path_pressed() -> void:
-	_data_path_file_dialog.popup_centered_clamped(_file_dialog_size)
+	_data_path_file_dialog.popup_centered_minsize(_file_dialog_size)
 
 func _on_data_dir_selected(dir_path: String) -> void:
 	if dir_path != AppSettings.resource_store_path:
