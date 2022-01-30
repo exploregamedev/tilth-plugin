@@ -13,7 +13,7 @@ bg_color = Color( 0.164706, 0.180392, 0.215686, 1 )
 [node name="TaskCard" type="PanelContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-rect_min_size = Vector2( 500, 400 )
+rect_min_size = Vector2( 300, 200 )
 size_flags_vertical = 3
 custom_styles/panel = SubResource( 2 )
 script = ExtResource( 2 )
