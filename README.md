@@ -32,7 +32,7 @@ You can now create more columns as needed and give them names that align with yo
 
 Within the columns (probably starting with the left most), you can start creating tasks.
 
-![](docs/create-tasks.gif)
+![](docs/add-task.gif)
 
 As you progress on tasks you drag and drop them from left to right as appropriate.
 
